@@ -1,9 +1,9 @@
-name: Code Style Linter
+name: CI Pipeline
 
 on: [push, pull_request]
 
 jobs:
-  lint:
+  code-quality:
     runs-on: ubuntu-latest
     
     steps:
@@ -20,6 +20,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Run flake8
+    - name: Run linter
       run: |
         flake8 . --count --show-source --statistics
+        
+    - name: Run unit tests
+      run: |
+        pytest -v
+        
+    - name: Generate test report
+      run: |
+        pytest --junitxml=junit/test-results.xml
+      
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: junit/
