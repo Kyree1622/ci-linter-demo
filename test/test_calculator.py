@@ -1,14 +1,17 @@
 import pytest
 import sys
 import os
-from calculator import add  # 导入移到顶部
 
+# 第一步：先添加路径到sys.path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
+# 第二步：再执行导入
+from myapp.calculator import add
 
-class TestCalculator:  # 类定义前有2个空行
+
+class TestCalculator:
     """计算器测试类"""
-
+    
     def test_add_positive_numbers(self):
         """测试正数相加"""
         assert add(2, 3) == 5
