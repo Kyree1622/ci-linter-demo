@@ -8,7 +8,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 class TestCalculator:  # 类定义前有2个空行
     """计算器测试类"""
-    
+
     def test_add_positive_numbers(self):
         """测试正数相加"""
         assert add(2, 3) == 5
@@ -33,4 +33,3 @@ class TestCalculator:  # 类定义前有2个空行
         """测试无效输入"""
         with pytest.raises(TypeError):
             add("hello", "world")
-            
