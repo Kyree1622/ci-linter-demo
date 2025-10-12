@@ -3,7 +3,7 @@ import sys
 import os
 from calculator import add  # 导入移到顶部
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 
 class TestCalculator:  # 类定义前有2个空行
