@@ -1,5 +1,5 @@
 import pytest
-from myapp.calculator import add,subtract
+from myapp.calculator import add, subtract
 
 
 class TestCalculator:

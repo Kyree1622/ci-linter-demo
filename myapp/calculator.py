@@ -6,6 +6,7 @@ def add(a, b):
         raise TypeError("参数必须是数字类型")
     return a + b
 
+
 def subtract(a, b):
     """
     两数相减
