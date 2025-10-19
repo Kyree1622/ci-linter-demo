@@ -1,5 +1,5 @@
 import pytest
-from myapp.calculator import add
+from myapp.calculator import add,subtract
 
 
 class TestCalculator:
@@ -29,3 +29,23 @@ class TestCalculator:
         """测试无效输入"""
         with pytest.raises(TypeError):
             add("hello", "world")
+
+    def test_subtract_positive_numbers(self):
+        """测试正数相减"""
+        assert subtract(5, 3) == 2
+        assert subtract(10, 2) == 8
+
+    def test_subtract_negative_numbers(self):
+        """测试负数相减"""
+        assert subtract(5, -3) == 8
+        assert subtract(-5, 3) == -8
+
+    def test_subtract_zero(self):
+        """测试零值边界情况"""
+        assert subtract(5, 0) == 5
+        assert subtract(0, 5) == -5
+        assert subtract(0, 0) == 0
+
+    def test_subtract_large_numbers(self):
+        """测试大数相减"""
+        assert subtract(1000000, 500000) == 500000
